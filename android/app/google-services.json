@@ -1,0 +1,47 @@
+{
+  "project_info": {
+    "project_number": "313849339763",
+    "project_id": "timer-tracker-1713",
+    "storage_bucket": "timer-tracker-1713.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:313849339763:android:347190c4808fdef7f2ef06",
+        "android_client_info": {
+          "package_name": "com.personal.timer_tracker_app"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "313849339763-do2ee1poclrrabfn7ikmsu8tu598u1pr.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.personal.timer_tracker_app",
+            "certificate_hash": "8d528f9ef3375965354584caee2489cbe639c6e7"
+          }
+        },
+        {
+          "client_id": "313849339763-7bunbanthm3m9d0gco5u91brupt40pfd.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDdCceYia3igB21E5x8nrH70tqiDuVAgDc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "313849339763-7bunbanthm3m9d0gco5u91brupt40pfd.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
