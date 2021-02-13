@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:timer_tracker_app/custom%20widgets/customRaisedButton.dart';
 import 'package:timer_tracker_app/pages/signInButton.dart';
 import 'package:timer_tracker_app/pages/socialSignInButton.dart';
+import 'package:firebase_auth/firebase_auth.dart';
+import 'package:firebase_core/firebase_core.dart';
+import 'package:toast/toast.dart';
 
 class SignInPage extends StatefulWidget {
   @override
@@ -9,6 +11,23 @@ class SignInPage extends StatefulWidget {
 }
 
 class _SignInPageState extends State<SignInPage> {
+
+  @override
+  void initState() {
+    Future<FirebaseApp> _initialization = Firebase.initializeApp();
+    super.initState();
+  }
+
+  Future<void> _signInAsGuest () async {
+    try{
+      final authResult = await FirebaseAuth.instance.signInAnonymously();
+      print('UserID: ${authResult.user.uid}');
+      Toast.show("Successfully Signed In as a Guest \n The UserId: ${authResult.user.uid}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
+    }catch(e){
+      print(e.toString());
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -81,7 +100,7 @@ class _SignInPageState extends State<SignInPage> {
                 textColor: Colors.black,
                 color: Colors.yellow[200],
                 height: 50,
-                onPressed: () {},
+                onPressed: _signInAsGuest,
               ),
             ],
           ),
