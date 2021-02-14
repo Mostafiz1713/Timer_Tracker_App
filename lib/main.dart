@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:timer_tracker_app/pages/signIn.dart';
+import 'package:timer_tracker_app/pages/landingPage.dart';
 
 void main() => runApp(MyApp());
 
@@ -12,7 +12,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.amber,
       ),
-      home: SignInPage(),
+      home: LandingPage(),
     );
   }
 }

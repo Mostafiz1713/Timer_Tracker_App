@@ -6,6 +6,10 @@ import 'package:firebase_core/firebase_core.dart';
 import 'package:toast/toast.dart';
 
 class SignInPage extends StatefulWidget {
+  SignInPage({
+    @required this.onSignIn,
+  });
+  final Function(User) onSignIn;
   @override
   _SignInPageState createState() => _SignInPageState();
 }
@@ -18,12 +22,16 @@ class _SignInPageState extends State<SignInPage> {
     super.initState();
   }
 
-  Future<void> _signInAsGuest () async {
-    try{
+  Future<void> _signInAsGuest() async {
+    try {
       final authResult = await FirebaseAuth.instance.signInAnonymously();
-      print('UserID: ${authResult.user.uid}');
-      Toast.show("Successfully Signed In as a Guest \n The UserId: ${authResult.user.uid}", context, duration: Toast.LENGTH_LONG, gravity:  Toast.BOTTOM);
-    }catch(e){
+      widget.onSignIn(authResult.user);
+      /*Toast.show(
+          "Successfully Signed In as a Guest \n The UserId: ${authResult.user.uid}",
+          context,
+          duration: Toast.LENGTH_LONG,
+          gravity: Toast.BOTTOM);*/
+    } catch (e) {
       print(e.toString());
     }
   }
@@ -85,13 +93,14 @@ class _SignInPageState extends State<SignInPage> {
                 height: 8.0,
               ),
               Center(
-                  child: Text(
-                    'Or',
-                    style: TextStyle(
-                      fontWeight: FontWeight.bold,
-                      fontSize: 16,
-                    ),
-                  ),),
+                child: Text(
+                  'Or',
+                  style: TextStyle(
+                    fontWeight: FontWeight.bold,
+                    fontSize: 16,
+                  ),
+                ),
+              ),
               SizedBox(
                 height: 8.0,
               ),
